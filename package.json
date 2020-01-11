@@ -1,0 +1,36 @@
+{
+  "name": "gaming-analytics-assignment",
+  "version": "1.0.0",
+  "description": "A report of suggested casino recommendations with sorting and grouping ability",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darsoohoo/gaming-analytics-assignment.git"
+  },
+  "keywords": [
+    "report",
+    "table",
+    "sorting",
+    "grouping"
+  ],
+  "author": "Darren SooHoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darsoohoo/gaming-analytics-assignment/issues"
+  },
+  "homepage": "https://github.com/darsoohoo/gaming-analytics-assignment#readme",
+  "dependencies": {
+    "create-react-app": "^3.3.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  }
+}
