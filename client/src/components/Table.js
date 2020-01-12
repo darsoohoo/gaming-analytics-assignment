@@ -53,15 +53,18 @@ export class Table extends Component {
       }
 
       sortBy = (key) => {
-        if(key == 'Date')  {
+        if(key === 'Date')  {
+          
           const dateParser = this.state.items.map(item => {
-            item.Date = new Date(item.Date)
+            
+            item.Date = Date(item.Date)
             return item;
           })
+
           this.setState({
             items: dateParser.sort(( a, b) => (a.Date < b.Date))
           })
-        } else if ('number' == typeof(this.state.items[0][key])) {
+        } else if ('number' === typeof(this.state.items[0][key])) {
 
         this.setState({
           items: this.state.items.sort( (a, b) => (
@@ -106,8 +109,6 @@ export class Table extends Component {
             : 'asc'
           }
         })
-
-
       }
 
   

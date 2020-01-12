@@ -73,16 +73,56 @@ const people = [
     },
 ]
 
+// const sorted = people.sort((a, b) => {
+//  let aday = a.date.slice(8) 
+//  let   bday = b.date.slice(8)
+//  let  amonth = a.date.slice(5,7)
+//  let  bmonth = b.date.slice(5,7)
+//  let  ayear = a.date.slice(0,4)
+//  let  byear = b.date.slice(0,4)
+
+//     a.date = Date.parse(aday + "/" + amonth + "/" + ayear)
+//     b.date = Date.parse(bday + "/" + bmonth + "/" + byear)
+//     return a.date - b.date;
+
+// })
 
 const newpeople = people.map(person => {
-    person.date = new Date(person.date)
-    console.log(typeof(person.age))
+    const day = person.date.slice(8);
+    const month = person.date.slice(5,7);
+    const year = person.date.slice(0,4);
+    const newdate = Date.UTC(year, month, day)
+    console.log(newdate)
+    person.date = newdate.toLocaleString('en-GB')
+
+
+    //console.log(typeof(person.age))
     return person;
 })
 
+console.log(newpeople)
 
-const sortedPeople = newpeople.sort((a,b) => (a.date < b.date))
+// const sortedPeople = newpeople.sort((a,b) => (a.date < b.date))
 
-console.log(sortedPeople)
+// console.log(sortedPeople)
+
+// people.forEach(person => {
+//     day = person.date.slice(8) 
+//     console.log(day)
+//     week = person.date.slice(5,7)
+//     console.log(week)
+//     year = person.date.slice(0,4)
+//     console.log(year)
+    
+// })
+
+
+// const activities = [
+//     { title: 'Hiking', date: new Date('2019-06-28') },
+//     { title: 'Shopping', date: new Date('2019-06-10') },
+//     { title: 'Trekking', date: new Date('2019-06-22') }
+//   ]
+  
+  
 
 
