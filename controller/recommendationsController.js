@@ -1,14 +1,6 @@
-const  Recommendation  = require('../recommendationData.js');
+const  Recommendations  = require('../recommendationData.json');
 
 exports.getRecommendations = (req, res) => {
-    Recommendation.find()
-    .exec((err , recommendations) => {
-        if(err) {
-            return res.status(400).json({
-                error: "Recommendations not found"
-            });
-        }
-        res.json(recommendations);
-    })
+        res.json(Recommendations);
 };
 
