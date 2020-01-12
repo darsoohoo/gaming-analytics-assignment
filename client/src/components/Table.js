@@ -53,6 +53,16 @@ export class Table extends Component {
       }
 
       sortBy = (key) => {
+        if(key == 'Date')  {
+          const dateParser = this.state.items.map(item => {
+            item.Date = new Date(item.Date)
+            return item;
+          })
+          this.setState({
+            items: dateParser.sort(( a, b) => (a.Date < b.Date))
+          })
+        } else if ('number' == typeof(this.state.items[0][key])) {
+
         this.setState({
           items: this.state.items.sort( (a, b) => (
             this.state.direction[key] === 'asc'
@@ -64,7 +74,23 @@ export class Table extends Component {
             ? 'desc'
             : 'asc'
           }
-        })
+          })
+        } else if ('string' == typeof(this.state.items[0][key])) {
+
+          this.setState({
+            items: this.state.items.sort( (a, b) => (
+              this.state.direction[key] === 'asc'
+              ? (a[key]) - (b[key])
+              : (b[key]) - (a[key])
+            )),
+            direction: {
+              [key]: this.state.direction[key] === 'asc'
+              ? 'desc'
+              : 'asc'
+            }
+            })
+        }
+
       }
 
       groupBy = (key) => {
@@ -95,11 +121,13 @@ export class Table extends Component {
 
                 <section>
                     <div className="grouping">
+                      Group by
                       <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Area')}>Area</button>
                       <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Zone')}>Zone</button>
                       <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Bank')}>Bank</button>
                       <button className="waves-effect waves-light btn" onClick={() => this.groupBy('OldDenom')}>Old Denom</button>
                     </div>
+
                     <table className="table highlight responsive-table">
                         <thead className="table-head">
                           <th>Row</th>
@@ -172,8 +200,8 @@ export class Table extends Component {
                         <tbody>
                             {items
                             .map((item, index) => (
-                                <tr>
-                                <td key={index}>{index+1}</td>
+                                <tr key={index}>
+                                <td >{index+1}</td>
                                 <td>{item.Asset}</td>
                                 <td>{item.Action}</td>
                                 <td>{item.RecommendationStatus}</td>

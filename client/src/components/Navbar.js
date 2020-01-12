@@ -5,8 +5,8 @@ const Navbar = () => {
   
     return (
       <nav>
-      <div class="nav-wrapper">
-        <div class="brand-logo">Report</div>
+      <div className="nav-wrapper">
+        <div className="brand-logo">Report</div>
       </div>
     </nav>
     );

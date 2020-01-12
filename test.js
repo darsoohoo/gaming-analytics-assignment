@@ -53,31 +53,36 @@
 const people = [
     {
         name: "darren",
-        age: 4,
+        age: 1,
+        date: "2019/06/25"
     },
     {
         name: "john",
-        age: 9
+        age: 20,
+        date: "2000/06/24"
     },
     {
         name: "mike",
-        age: 1
+        age: 2,
+        date: "2018/04/20"
+    },
+    {
+        name: "bob",
+        age: 10,
+        date: "2010/06/29"
     },
 ]
 
-let sorted = [];
 
-let temp = 0;
-
-Object.keys(people).forEach(item => {
-    console.log(people[item].age)
-    if(people[item].age < temp) {
-        sorted.unshift(people[item])
-        temp = people[item].age
-    } else {
-        sorted.push(people[item])
-        temp = people[item].age
-    }
+const newpeople = people.map(person => {
+    person.date = new Date(person.date)
+    console.log(typeof(person.age))
+    return person;
 })
 
-console.log(sorted)
+
+const sortedPeople = newpeople.sort((a,b) => (a.date < b.date))
+
+console.log(sortedPeople)
+
+
