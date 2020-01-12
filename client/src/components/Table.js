@@ -22,7 +22,12 @@ export class Table extends Component {
             OldPaybackPct: '',
             NewPaybackPct: '',
             Date: ''
-            
+          },
+          grouping: {
+            Bank: '',
+            Area: '',
+            Zone: '',
+            OldDenom: ''
           }
         };
       }
@@ -48,7 +53,6 @@ export class Table extends Component {
       sortBy = (key) => {
         this.setState({
           items: this.state.items.sort( (a, b) => (
-            
             this.state.direction[key] === 'asc'
             ? parseFloat(a[key]) - parseFloat(b[key])
             : parseFloat(b[key]) - parseFloat(a[key])
@@ -61,6 +65,12 @@ export class Table extends Component {
         })
       }
 
+      groupBy = (key) => {
+        this.setState({
+
+        })
+      }
+
   
   
 
@@ -70,9 +80,10 @@ export class Table extends Component {
 
         return (
   
-                <section className="container table">
-                    <table className="mdl-data-table mdl-js-data-table mdl-button--colored">
-                        <thead>
+                <section>
+                               
+                    <table className="table highlight responsive-table">
+                        <thead className="table-head">
                             <th 
                               className="asset"
                               onClick={() => this.sortBy('Asset')}>
