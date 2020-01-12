@@ -1,8 +1,20 @@
+.grouping {
+  margin-top: 50px;
+  width:50%;
+}
+
+
 .table {
-  margin-top: 75px;
+  margin-top: 50px;
   border: solid thin lightgray;
 }
 
 .table-head {
   border: solid thin darkgray;
+}
+
+.btn {
+  margin-right: 3px;
+  margin-bottom: 5px;
+  float: left;
 }

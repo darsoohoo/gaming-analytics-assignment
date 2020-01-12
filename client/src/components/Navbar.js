@@ -1,4 +1,4 @@
-import React, { Component, Link } from 'react';
+import React from 'react';
 
 
 const Navbar = () => {
@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
       <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Report</a>
+        <div class="brand-logo">Report</div>
       </div>
     </nav>
     );

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Table.css'
 
 export class Table extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {
@@ -23,12 +24,13 @@ export class Table extends Component {
             NewPaybackPct: '',
             Date: ''
           },
-          grouping: {
+          groupBy: {
             Bank: '',
             Area: '',
             Zone: '',
             OldDenom: ''
-          }
+          },
+          value: '',
         };
       }
 
@@ -67,8 +69,19 @@ export class Table extends Component {
 
       groupBy = (key) => {
         this.setState({
-
+          items: this.state.items.sort( (a, b) => 
+            this.state.groupBy[key] === 'asc'
+            ? parseFloat(a[key]) - parseFloat(b[key])
+            : parseFloat(b[key]) - parseFloat(a[key])
+          ),
+          groupBy: {
+            [key]: this.state.groupBy[key] === 'asc'
+            ? 'desc'
+            : 'asc'
+          }
         })
+
+
       }
 
   
@@ -79,15 +92,21 @@ export class Table extends Component {
         const { items } = this.state;
 
         return (
-  
+
                 <section>
-                               
+                    <div className="grouping">
+                      <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Area')}>Area</button>
+                      <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Zone')}>Zone</button>
+                      <button className="waves-effect waves-light btn" onClick={() => this.groupBy('Bank')}>Bank</button>
+                      <button className="waves-effect waves-light btn" onClick={() => this.groupBy('OldDenom')}>Old Denom</button>
+                    </div>
                     <table className="table highlight responsive-table">
                         <thead className="table-head">
+                          <th>Row</th>
                             <th 
                               className="asset"
                               onClick={() => this.sortBy('Asset')}>
-                              Asset
+                               Asset
                             </th>
                             <th 
                               className="action" 
@@ -152,9 +171,10 @@ export class Table extends Component {
                         </thead>
                         <tbody>
                             {items
-                            .map(item => (
+                            .map((item, index) => (
                                 <tr>
-                                <td key={item.Asset}>{item.Asset}</td>
+                                <td key={index}>{index+1}</td>
+                                <td>{item.Asset}</td>
                                 <td>{item.Action}</td>
                                 <td>{item.RecommendationStatus}</td>
                                 <td>{item.Area}</td>
