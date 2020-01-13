@@ -6,7 +6,7 @@ In the project directory, first run:
 
 ### `npm install`
 
-This will install all dependencies.<br />
+This will install dependencies at the root directory and in the client folder.<br />
 
 Start the app with:
 
