@@ -1,34 +1,20 @@
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  .flex-container>div{
-    align-items: center;
-    justify-content: center;
-    align-content:stretch;
-  }
-  
-  .flex-container>h4{
-    align-items: flex-start;
-    justify-content: center;
-    align-content:stretch;
-  }
-  
-  .total-flex-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-  }
+.grouping {
+  margin-top: 50px;
+  width:50%;
+}
 
-  .table{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    
-  }
 
+.table {
+  margin-top: 50px;
+  border: solid thin lightgray;
+}
+
+.table-head {
+  border: solid thin darkgray;
+}
+
+.btn {
+  margin-right: 3px;
+  margin-bottom: 5px;
+  float: left;
+}

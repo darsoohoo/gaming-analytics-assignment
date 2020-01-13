@@ -53,31 +53,76 @@
 const people = [
     {
         name: "darren",
-        age: 4,
+        age: 1,
+        date: "2019/06/25"
     },
     {
         name: "john",
-        age: 9
+        age: 20,
+        date: "2000/06/24"
     },
     {
         name: "mike",
-        age: 1
+        age: 2,
+        date: "2018/04/20"
+    },
+    {
+        name: "bob",
+        age: 10,
+        date: "2010/06/29"
     },
 ]
 
-let sorted = [];
+// const sorted = people.sort((a, b) => {
+//  let aday = a.date.slice(8) 
+//  let   bday = b.date.slice(8)
+//  let  amonth = a.date.slice(5,7)
+//  let  bmonth = b.date.slice(5,7)
+//  let  ayear = a.date.slice(0,4)
+//  let  byear = b.date.slice(0,4)
 
-let temp = 0;
+//     a.date = Date.parse(aday + "/" + amonth + "/" + ayear)
+//     b.date = Date.parse(bday + "/" + bmonth + "/" + byear)
+//     return a.date - b.date;
 
-Object.keys(people).forEach(item => {
-    console.log(people[item].age)
-    if(people[item].age < temp) {
-        sorted.unshift(people[item])
-        temp = people[item].age
-    } else {
-        sorted.push(people[item])
-        temp = people[item].age
-    }
+// })
+
+const newpeople = people.map(person => {
+    
+    const date = new Date(person.date)
+    const month = date.getUTCMonth(person.date);
+    const year = date.getUTCFullYear(person.date);
+    const day = date.getDate();
+    const formattedDate = (month + 1) + '/' + day + "/" + year;
+    person.date = formattedDate;
+    person.dateAsNumber = Date.parse(formattedDate)
+    console.log(person.dateAsNumber)
+    return person;
 })
 
-console.log(sorted)
+console.log(newpeople)
+
+const sortedPeople = newpeople.sort((a,b) => (b.dateAsNumber - a.dateAsNumber))
+
+console.log(sortedPeople)
+
+// people.forEach(person => {
+//     day = person.date.slice(8) 
+//     console.log(day)
+//     week = person.date.slice(5,7)
+//     console.log(week)
+//     year = person.date.slice(0,4)
+//     console.log(year)
+    
+// })
+
+
+// const activities = 
+//     { title: 'Hiking', date: new Date('2019-06-28') },
+//     { title: 'Shopping', date: new Date('2019-06-10') },
+//     { title: 'Trekking', date: new Date('2019-06-22') }
+//   ]
+  
+  
+
+

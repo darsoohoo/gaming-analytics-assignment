@@ -1,18 +1,13 @@
-import React, { Component, Link } from 'react';
+import React from 'react';
 
+const Navbar = () => {
+  return (
+    <nav>
+      <div className='nav-wrapper'>
+        <div className='brand-logo'>Report</div>
+      </div>
+    </nav>
+  );
+};
 
-export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <header className='mdl-layout__header'>
-        <div className='mdl-layout__header-row'>
-          <span className='mdl-layout-title'>Report</span>
-        </div>
-      </header>
-    );
-  }
-}
+export default Navbar;
