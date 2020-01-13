@@ -88,23 +88,23 @@ const people = [
 // })
 
 const newpeople = people.map(person => {
-    const day = person.date.slice(8);
-    const month = person.date.slice(5,7);
-    const year = person.date.slice(0,4);
-    const newdate = Date.UTC(year, month, day)
-    console.log(newdate)
-    person.date = newdate.toLocaleString('en-GB')
-
-
-    //console.log(typeof(person.age))
+    
+    const date = new Date(person.date)
+    const month = date.getUTCMonth(person.date);
+    const year = date.getUTCFullYear(person.date);
+    const day = date.getDate();
+    const formattedDate = (month + 1) + '/' + day + "/" + year;
+    person.date = formattedDate;
+    person.dateAsNumber = Date.parse(formattedDate)
+    console.log(person.dateAsNumber)
     return person;
 })
 
 console.log(newpeople)
 
-// const sortedPeople = newpeople.sort((a,b) => (a.date < b.date))
+const sortedPeople = newpeople.sort((a,b) => (b.dateAsNumber - a.dateAsNumber))
 
-// console.log(sortedPeople)
+console.log(sortedPeople)
 
 // people.forEach(person => {
 //     day = person.date.slice(8) 
@@ -117,7 +117,7 @@ console.log(newpeople)
 // })
 
 
-// const activities = [
+// const activities = 
 //     { title: 'Hiking', date: new Date('2019-06-28') },
 //     { title: 'Shopping', date: new Date('2019-06-10') },
 //     { title: 'Trekking', date: new Date('2019-06-22') }
