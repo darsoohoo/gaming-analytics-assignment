@@ -72,7 +72,8 @@ export class Table extends Component {
           [key]: this.state.direction[key] === 'asc' ? 'desc' : 'asc'
         }
       });
-    } else if ('number' === typeof this.state.items[0][key]) {
+    } else if ('number' === typeof(this.state.items[0][key])) {
+      console.log(typeof(this.state.items[0][key]))
       this.setState({
         items: this.state.items.sort((a, b) =>
           this.state.direction[key] === 'asc'
@@ -83,12 +84,13 @@ export class Table extends Component {
           [key]: this.state.direction[key] === 'asc' ? 'desc' : 'asc'
         }
       });
-    } else if ('string' == typeof this.state.items[0][key]) {
+    } else if ('string' === typeof(this.state.items[0][key])) {
+      console.log(typeof(this.state.items[0][key]))
       this.setState({
         items: this.state.items.sort((a, b) =>
           this.state.direction[key] === 'asc'
-            ? a[key] - b[key]
-            : b[key] - a[key]
+            ? (a[key]).localeCompare(b[key])
+            : (b[key]).localeCompare(a[key])
         ),
         direction: {
           [key]: this.state.direction[key] === 'asc' ? 'desc' : 'asc'
@@ -153,9 +155,7 @@ export class Table extends Component {
               Action
             </th>
             <th
-              className='status'
-              onClick={() => this.sortBy('RecommendedStatus')}
-            >
+              className='status' onClick={() => this.sortBy('RecommendationStatus')}>
               Status
             </th>
             <th className='area' onClick={() => this.sortBy('Area')}>
@@ -203,8 +203,8 @@ export class Table extends Component {
                 <td>{item.Action}</td>
                 <td>{item.RecommendationStatus}</td>
                 <td>{item.Area}</td>
-                <td>{item.Bank}</td>
                 <td>{item.Zone}</td>
+                <td>{item.Bank}</td>
                 <td>{item.Stand}</td>
                 <td>{item.NetWin}</td>
                 <td>{item.OldDenom}</td>
