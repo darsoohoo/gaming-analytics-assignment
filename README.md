@@ -6,13 +6,13 @@ In the project directory, first run:
 
 ### `npm install`
 
-Installs dependencies.<br />
+This will install all dependencies.<br />
 
 Start the app with:
 
 ### `npm run dev`
 
-This will start your node server on localhost:5000 and the frontend server on localhost:3000.
+This will start the node server on localhost:5000 and the frontend server on localhost:3000.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
