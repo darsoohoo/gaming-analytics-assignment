@@ -51,7 +51,6 @@ export class Table extends Component {
 
   sortBy = key => {
     if (key === 'Date') {
-      console.log('click date');
       const dateParser = this.state.items.map(item => {
         const date = new Date(item[key]);
         const month = date.getUTCMonth(item[key]);
@@ -73,7 +72,6 @@ export class Table extends Component {
         }
       });
     } else if ('number' === typeof(this.state.items[0][key])) {
-      console.log(typeof(this.state.items[0][key]))
       this.setState({
         items: this.state.items.sort((a, b) =>
           this.state.direction[key] === 'asc'
@@ -85,7 +83,6 @@ export class Table extends Component {
         }
       });
     } else if ('string' === typeof(this.state.items[0][key])) {
-      console.log(typeof(this.state.items[0][key]))
       this.setState({
         items: this.state.items.sort((a, b) =>
           this.state.direction[key] === 'asc'
