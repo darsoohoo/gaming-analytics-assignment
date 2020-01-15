@@ -26,12 +26,7 @@ export class Table extends Component {
         NewPaybackPct: '',
         Date: ''
       },
-      groupBy: {
-        Bank: '',
-        Area: '',
-        Zone: '',
-        OldDenom: ''
-      }
+      groupBy: ''
     };
   }
 
@@ -99,71 +94,34 @@ export class Table extends Component {
     }
   };
 
+  groupItems = (k) => {
+    const { items } = this.state;
+    let keymap = {};
+    for( let i = 0; i < items.length; i++) {
+        if(!keymap[items[i][k]]) {
+            keymap[items[i][k]] = [];
+            keymap[items[i][k]].push(items[i])
+
+        } else {
+            keymap[items[i][k]].push(items[i])
+        }
+    }
+    console.log(keymap)
+    return keymap;
+}
+
+
+
   groupBy = key => {
+    console.log(key)
     this.setState({
-      items: this.state.items.sort((a, b) =>
-        this.state.groupBy[key] === 'asc'
-          ? parseFloat(a[key]) - parseFloat(b[key])
-          : parseFloat(b[key]) - parseFloat(a[key])
-      ),
-      groupBy: {
-        [key]: this.state.groupBy[key] === 'asc' ? 'desc' : 'asc'
-      }
+      items: this.groupItems(key),
+      groupBy: "hi"
     });
+    console.log(this.state.groupBy)
   };
 
   render() {
-
-    const groupedItems = [
-    
-      {48: [{
-          Asset: 8919,
-          Area: 1,
-          Zone: 2,
-          Bank: 48
-      },
-      {
-          Asset: 8918,
-          Area: 1,
-          Zone: 2,
-          Bank: 48
-      },
-      {
-          Asset: 1097,
-          Area: 1,
-          Zone: 2,
-          Bank: 48
-      }]
-    },
-    {37: [{
-          Asset: 1529,
-          Area: 1,
-          Zone: 2,
-          Bank: 37
-      },
-      {
-          Asset: 3097,
-          Area: 1,
-          Zone: 2,
-          Bank: 37
-      }]
-    },
-    {50: [{
-          Asset: 7919,
-          Area: 1,
-          Zone: 2,
-          Bank: 50
-      },
-      {
-          Asset: 2297,
-          Area: 1,
-          Zone: 2,
-          Bank: 50
-      }]
-    }
-  ]
-  console.log(groupedItems)
-
 
     return (
       <section>

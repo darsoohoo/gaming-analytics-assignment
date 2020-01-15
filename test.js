@@ -1688,7 +1688,7 @@ const groupedItems = [
 //     console.log("keymap ", keymap)
 // }
 
-const groupItems = (items) => {
+const groupItems = (items, key) => {
     let keymap = {};
     for( let i = 0; i < items.length; i++) {
         if(!keymap[items[i][key]]) {
@@ -1702,5 +1702,5 @@ const groupItems = (items) => {
     console.log(keymap)
     return keymap;
 }
-const key = 'Bank'
-groupItems(recommendations, key)
+const k = 'Bank'
+groupItems(recommendations, k)
