@@ -1568,26 +1568,29 @@ const recommendations = [
       Date: '2019/06/15'
     }
   ]
-  
-  const grouping = (items, key) => {
-    let groupedItems = {};
-    let temp;
 
-    for(let i = 0; i < items.length; i++) {
-        if(!groupedItems[items[i][key]]) {
-            temp = groupedItems[items[i][key]]
-            groupedItems[items[i][key]] = [items[i]];
-            temp = [];
-        } else if(groupedItems[items[i][key]] !== items[i][key]){
-            temp =  groupedItems[items[i][key]]
-            groupedItems[items[i][key]].push(items[i])
-            temp = [];
+
+ 
+  
+//   const grouping = (items, key) => {
+//     let groupedItems = {};
+//     let temp;
+
+//     for(let i = 0; i < items.length; i++) {
+//         if(!groupedItems[items[i][key]]) {
+//             temp = groupedItems[items[i][key]]
+//             groupedItems[items[i][key]] = [items[i]];
+//             temp = [];
+//         } else if(groupedItems[items[i][key]] !== items[i][key]){
+//             temp =  groupedItems[items[i][key]]
+//             groupedItems[items[i][key]].push(items[i])
+//             temp = [];
           
-        }
-        console.log(groupedItems)
-    }
+//         }
+//         console.log(groupedItems)
+//     }
     
-}
+// }
 
 
 
@@ -1611,4 +1614,58 @@ const recommendations = [
     
 // }
 
-grouping(recommendations, 'Bank')
+// grouping(recommendations, 'Bank')
+
+
+const groupedItems = [
+    
+    {48: [{
+        Asset: 8919,
+        Area: 1,
+        Zone: 2,
+        Bank: 48
+    },
+    {
+        Asset: 8918,
+        Area: 1,
+        Zone: 2,
+        Bank: 48
+    },
+    {
+        Asset: 1097,
+        Area: 1,
+        Zone: 2,
+        Bank: 48
+    }]
+  },
+  {37: [{
+        Asset: 1529,
+        Area: 1,
+        Zone: 2,
+        Bank: 37
+    },
+    {
+        Asset: 3097,
+        Area: 1,
+        Zone: 2,
+        Bank: 37
+    }]
+  },
+  {50: [{
+        Asset: 7919,
+        Area: 1,
+        Zone: 2,
+        Bank: 50
+    },
+    {
+        Asset: 2297,
+        Area: 1,
+        Zone: 2,
+        Bank: 50
+    }]
+  }
+]
+
+for (const key in groupedItems) {
+    console.log(groupedItems[key])
+}

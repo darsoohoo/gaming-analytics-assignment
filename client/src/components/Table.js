@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Table.css';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+
 
 export class Table extends Component {
   constructor(props) {
@@ -110,7 +113,57 @@ export class Table extends Component {
   };
 
   render() {
-    const { items } = this.state;
+
+    const groupedItems = [
+    
+      {48: [{
+          Asset: 8919,
+          Area: 1,
+          Zone: 2,
+          Bank: 48
+      },
+      {
+          Asset: 8918,
+          Area: 1,
+          Zone: 2,
+          Bank: 48
+      },
+      {
+          Asset: 1097,
+          Area: 1,
+          Zone: 2,
+          Bank: 48
+      }]
+    },
+    {37: [{
+          Asset: 1529,
+          Area: 1,
+          Zone: 2,
+          Bank: 37
+      },
+      {
+          Asset: 3097,
+          Area: 1,
+          Zone: 2,
+          Bank: 37
+      }]
+    },
+    {50: [{
+          Asset: 7919,
+          Area: 1,
+          Zone: 2,
+          Bank: 50
+      },
+      {
+          Asset: 2297,
+          Area: 1,
+          Zone: 2,
+          Bank: 50
+      }]
+    }
+  ]
+  console.log(groupedItems)
+
 
     return (
       <section>
@@ -143,75 +196,41 @@ export class Table extends Component {
         </div>
 
         <table className='table highlight responsive-table'>
-          <thead className='table-head'>
+        <thead className='table-head'>
             <th>Row</th>
-            <th className='asset' onClick={() => this.sortBy('Asset')}>
-              Asset
-            </th>
-            <th className='action' onClick={() => this.sortBy('Action')}>
-              Action
-            </th>
-            <th
-              className='status' onClick={() => this.sortBy('RecommendationStatus')}>
-              Status
+            <th className='asset' onClick={() => this.ortBy('Asset')}>
+                Asset
             </th>
             <th className='area' onClick={() => this.sortBy('Area')}>
-              Area
+                Area
             </th>
             <th className='zone' onClick={() => this.sortBy('Zone')}>
-              Zone
+                Zone
             </th>
             <th className='bank' onClick={() => this.sortBy('Bank')}>
-              Bank
-            </th>
-            <th className='stand' onClick={() => this.sortBy('Stand')}>
-              Stand
-            </th>
-            <th className='netwin' onClick={() => this.sortBy('NetWin')}>
-              Net Win
-            </th>
-            <th className='old-denom' onClick={() => this.sortBy('OldDenom')}>
-              Old Denom
-            </th>
-            <th className='new-denom' onClick={() => this.sortBy('NewDenom')}>
-              New Denom
-            </th>
-            <th
-              className='old-payback-pct'
-              onClick={() => this.sortBy('OldPaybackPct')}
-            >
-              Old Payback Percentage
-            </th>
-            <th
-              className='new-payback-pct'
-              onClick={() => this.sortBy('NewPaybackPct')}
-            >
-              New Payback Percentage
-            </th>
-            <th className='date' onClick={() => this.sortBy('Date')}>
-              Date
+                Bank
             </th>
           </thead>
           <tbody>
-            {items.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item.Asset}</td>
-                <td>{item.Action}</td>
-                <td>{item.RecommendationStatus}</td>
-                <td>{item.Area}</td>
-                <td>{item.Zone}</td>
-                <td>{item.Bank}</td>
-                <td>{item.Stand}</td>
-                <td>{item.NetWin}</td>
-                <td>{item.OldDenom}</td>
-                <td>{item.NewDenom}</td>
-                <td>{item.OldPaybackPct}</td>
-                <td>{item.NewPaybackPct}</td>
-                <td>{item.Date}</td>
-              </tr>
-            ))}
+      
           </tbody>
+
+          
+       
+
+        </table>
+
+        <table className='table highlight responsive-table'>
+          <TableHeader
+            sortBy={this.sortBy}
+            items={this.state.items} 
+          />
+
+          <TableBody 
+            items={this.state.items} 
+          />
+       
+
         </table>
       </section>
     );
