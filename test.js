@@ -1672,30 +1672,35 @@ const groupedItems = [
   }
 ]
 
+//SUCCESS
+// const groupItems = (items) => {
+//     let keymap = {};
+//     for( let i = 0; i < items.length; i++) {
+//         console.log(items[i].Bank)
+//         if(!keymap[items[i].Bank]) {
+//             keymap[items[i].Bank] = [];
+//             keymap[items[i].Bank].push(items[i].Bank)
+//         } else {
+//             keymap[items[i].Bank].push(items[i])
+//         }
+//     }
+
+//     console.log("keymap ", keymap)
+// }
+
 const groupItems = (items) => {
     let keymap = {};
     for( let i = 0; i < items.length; i++) {
-        console.log(items[i].Bank)
-        if(!keymap[items[i].Bank]) {
-            keymap[items[i].Bank] = [];
-        } 
-    }
+        if(!keymap[items[i][key]]) {
+            keymap[items[i][key]] = [];
+            keymap[items[i][key]].push(items[i])
 
-
-    
-        
-        for(let key in keymap ) {
-            console.log(key)
-            console.log(items[key].Bank)
-            console.log(keymap.key)
-            if(key === items[key].Bank) {
-                keymap.key.push(items[i].Bank)    
-            }    
+        } else {
+            keymap[items[i][key]].push(items[i])
         }
-
-    console.log("keymap ", keymap)
-
-  
+    }
+    console.log(keymap)
+    return keymap;
 }
-
-groupItems(recommendations)
+const key = 'Bank'
+groupItems(recommendations, key)
