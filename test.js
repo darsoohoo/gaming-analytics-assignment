@@ -1616,6 +1616,12 @@ const recommendations = [
 
 // grouping(recommendations, 'Bank')
 
+/*
+// loop through array and create a key for each bank(aka key)
+// loop through array again and if the bank number matches the key, push the object inside the array
+
+*/
+
 
 const groupedItems = [
     
@@ -1666,6 +1672,30 @@ const groupedItems = [
   }
 ]
 
-for (const key in groupedItems) {
-    console.log(groupedItems[key])
+const groupItems = (items) => {
+    let keymap = {};
+    for( let i = 0; i < items.length; i++) {
+        console.log(items[i].Bank)
+        if(!keymap[items[i].Bank]) {
+            keymap[items[i].Bank] = [];
+        } 
+    }
+
+
+    
+        
+        for(let key in keymap ) {
+            console.log(key)
+            console.log(items[key].Bank)
+            console.log(keymap.key)
+            if(key === items[key].Bank) {
+                keymap.key.push(items[i].Bank)    
+            }    
+        }
+
+    console.log("keymap ", keymap)
+
+  
 }
+
+groupItems(recommendations)
