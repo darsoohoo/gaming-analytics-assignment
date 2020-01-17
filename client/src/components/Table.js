@@ -106,19 +106,18 @@ export class Table extends Component {
             keymap[items[i][k]].push(items[i])
         }
     }
-    console.log(keymap)
-    return keymap;
+    console.log("set items to ", keymap)
+    this.setState({ items: keymap });
 }
 
+  onGroupBy = key => {
+    this.setState({ groupBy: key }, () => console.log("set GroupBy to", key))
+    this.groupItems(key)
+    
+  };
 
-
-  groupBy = key => {
-    console.log(key)
-    this.setState({
-      items: this.groupItems(key),
-      groupBy: "hi"
-    });
-    console.log(this.state.groupBy)
+  clearGroupBy = () => {
+    this.setState({ groupBy: '' })
   };
 
   render() {
@@ -126,70 +125,53 @@ export class Table extends Component {
     return (
       <section>
         <div className='grouping'>
-          Group by
+           {!this.state.groupBy ? "" : `Group by: ${this.state.groupBy}`}
           <button
             className='waves-effect waves-light btn'
-            onClick={() => this.groupBy('Area')}
+            onClick={() => this.onGroupBy('Area')}
           >
             Area
           </button>
           <button
             className='waves-effect waves-light btn'
-            onClick={() => this.groupBy('Zone')}
+            onClick={() => this.onGroupBy('Zone')}
           >
             Zone
           </button>
           <button
             className='waves-effect waves-light btn'
-            onClick={() => this.groupBy('Bank')}
+            onClick={() => this.onGroupBy('Bank')}
           >
             Bank
           </button>
           <button
             className='waves-effect waves-light btn'
-            onClick={() => this.groupBy('OldDenom')}
+            onClick={() => this.onGroupBy('OldDenom')}
           >
             Old Denom
           </button>
+          <button
+            className='waves-effect waves-light btn btn-flat'
+            onClick={() => this.clearGroupBy()}
+          >
+            Clear
+          </button>
         </div>
-
         <table className='table highlight responsive-table'>
-        <thead className='table-head'>
-            <th>Row</th>
-            <th className='asset' onClick={() => this.ortBy('Asset')}>
-                Asset
-            </th>
-            <th className='area' onClick={() => this.sortBy('Area')}>
-                Area
-            </th>
-            <th className='zone' onClick={() => this.sortBy('Zone')}>
-                Zone
-            </th>
-            <th className='bank' onClick={() => this.sortBy('Bank')}>
-                Bank
-            </th>
-          </thead>
-          <tbody>
-      
-          </tbody>
 
-          
-       
+   
+            <TableHeader
+              sortBy={this.sortBy}
+              items={this.state.items} 
+            />
+            <TableBody 
+              items={this.state.items}
+              groupBy={this.state.groupBy}
+              onGroupBy={this.onGroupBy} 
+            />
 
         </table>
 
-        <table className='table highlight responsive-table'>
-          <TableHeader
-            sortBy={this.sortBy}
-            items={this.state.items} 
-          />
-
-          <TableBody 
-            items={this.state.items} 
-          />
-       
-
-        </table>
       </section>
     );
   }
