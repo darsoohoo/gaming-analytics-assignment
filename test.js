@@ -1688,10 +1688,32 @@ const groupedItems = [
 //     console.log("keymap ", keymap)
 // }
 
-const groupItems = (items, key) => {
-    let keymap = {};
+// const groupItems = (items, key) => {  
+//   let keymap = {};
+//     for( let i = 0; i < items.length; i++) {
+//         if(!keymap[items[i][key]]) {
+//             keymap[items[i][key]] = [];
+//             keymap[items[i][key]].push(items[i])
+
+//         } else {
+//             keymap[items[i][key]].push(items[i])
+//         }
+//     }
+//     console.log(keymap)
+//     return keymap;
+// }
+// const k = 'Bank'
+// groupItems(recommendations, k)
+
+
+const groupItems = (items, key) => {  
+  let keyArray = [];
+  // iterate through the items array
+  // iterate through keyarray 
+    // if itemskey is not in keyarray, push itemskey object in the array
+    // if items key is in the keyarray, push the itemskey in the objectarray of that array
     for( let i = 0; i < items.length; i++) {
-        if(!keymap[items[i][key]]) {
+        if(!items[i][key]) {
             keymap[items[i][key]] = [];
             keymap[items[i][key]].push(items[i])
 
