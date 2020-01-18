@@ -1624,70 +1624,53 @@ const recommendations = [
 
 
 const groupedItems = [
-    
-    {48: [{
-        Asset: 8919,
-        Area: 1,
-        Zone: 2,
-        Bank: 48
-    },
-    {
-        Asset: 8918,
-        Area: 1,
-        Zone: 2,
-        Bank: 48
-    },
-    {
-        Asset: 1097,
-        Area: 1,
-        Zone: 2,
-        Bank: 48
-    }]
-  },
-  {37: [{
-        Asset: 1529,
-        Area: 1,
-        Zone: 2,
-        Bank: 37
-    },
-    {
-        Asset: 3097,
-        Area: 1,
-        Zone: 2,
-        Bank: 37
-    }]
-  },
-  {50: [{
-        Asset: 7919,
-        Area: 1,
-        Zone: 2,
-        Bank: 50
-    },
-    {
-        Asset: 2297,
-        Area: 1,
-        Zone: 2,
-        Bank: 50
-    }]
-  }
+    { 48: [{ Asset: 8919, Area: 1, Zone: 2, Bank: 48 }, { Asset: 8918, Area: 1, Zone: 2, Bank: 48 }] },
+    { 37: [{ Asset: 1529, Area: 1, Zone: 2, Bank: 37 }, { Asset: 3097, Area: 1, Zone: 2, Bank: 37 }] },
+    { 50: [{ Asset: 7919, Area: 1, Zone: 2, Bank: 50 }, { Asset: 2297, Area: 1, Zone: 2, Bank: 50 }] }
 ]
 
 
-let array = groupedItems.map((item) => {
+// console.log(groupedItems[0])
+// console.log(groupedItems[[0][0]])
+
+
+let array = groupedItems.map((item, i) => {
   
   
   for(let num in item) {
     console.log(num)
     // console.log(item[num][0])
     for(let key in item[num]) {
-
+     // console.log(key)
+      //console.log(item[num])
+      
       console.log(item[num][key])
-      console.log(typeof(item[num][key]))
+
     }
 
   }
 
+
 });
+
+
+// let array = groupedItems.map((item, i) => {
+  
+  
+//   for(let num in item) {
+//     console.log(num)
+//     // console.log(item[num][0])
+//     for(let key in item[num]) {
+//      // console.log(key)
+//       //console.log(item[num])
+
+//       console.log(item[num][key])
+
+//     }
+
+//   }
+
+// });
 
 //SUCCESS
 // const groupItems = (items) => {
@@ -1739,17 +1722,207 @@ let array = groupedItems.map((item) => {
 */
 
 
-const groupItems = (items, key) => {  
-  let keyArray = [];
-  //keyArray = []
-  // push the key into the array assign the 
+// const groupItems = (items, key) => {  
+//   let keyArray = [];
+//   //keyArray = []
+//   // push the key into the array assign the 
 
 
-  // iterate through the items array
-  // iterate through keyarray 
-    // if itemskey is not in keyarray, push itemskey object in the array
-    // if items key is in the keyarray, push the itemskey in the objectarray of that array
+//   // iterate through the items array
+//   // iterate through keyarray 
+//     // if itemskey is not in keyarray, push itemskey object in the array
+//     // if items key is in the keyarray, push the itemskey in the objectarray of that array
 
-}
-const k = 'Bank'
-groupItems(recommendations, k)
+// }
+// const k = 'Bank'
+// groupItems(recommendations, k)
+
+
+
+
+// const groupedItems = [
+    
+//   {48: [{
+//       Asset: 8919,
+//       ChangeDay: '',
+//       Action: 'reject',
+//       RecommendationStatus: 'rejected',
+//       Area: 1,
+//       Zone: 1,
+//       Bank: 99,
+//       Stand: 3,
+//       NetWin: 33069,
+//       OldDenom: 5,
+//       NewDenom: 1,
+//       OldPaybackPct: 92.5,
+//       NewPaybackPct: 94,
+//       Asset: 8353,
+//       Date: '2019/06/15'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'reject',
+//       RecommendationStatus: 'rejected',
+//       Area: 1,
+//       Zone: 1,
+//       Bank: 99,
+//       Stand: 2,
+//       NetWin: 33069,
+//       OldDenom: 5,
+//       NewDenom: 1,
+//       OldPaybackPct: 92.5,
+//       NewPaybackPct: 94,
+//       Asset: 8351,
+//       Date: '2019/06/15'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'reject',
+//       RecommendationStatus: 'rejected',
+//       Area: 1,
+//       Zone: 1,
+//       Bank: 99,
+//       Stand: 1,
+//       NetWin: 33069,
+//       OldDenom: 5,
+//       NewDenom: 1,
+//       OldPaybackPct: 92.5,
+//       NewPaybackPct: 94,
+//       Asset: 8350,
+//       Date: '2019/06/15'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'accept',
+//       RecommendationStatus: 'accepted',
+//       Area: 1,
+//       Zone: 1,
+//       Bank: 35,
+//       Stand: 6,
+//       NetWin: 0,
+//       OldDenom: 1,
+//       NewDenom: 1,
+//       OldPaybackPct: 90.04,
+//       NewPaybackPct: 90.04,
+//       Asset: 8451,
+//       Date: '2019/06/15'
+//   }]
+// },
+// {37: [{
+//   ChangeDay: '',
+//   Action: 'accept',
+//   RecommendationStatus: 'accepted',
+//   Area: 1,
+//   Zone: 6,
+//   Bank: 129,
+//   Stand: 6,
+//   NetWin: 6095,
+//   OldDenom: 0.1,
+//   NewDenom: 0.1,
+//   OldPaybackPct: 90.14,
+//   NewPaybackPct: 92.1,
+//   Asset: 4044,
+//   Date: '2019/06/16'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'accept',
+//       RecommendationStatus: 'accepted',
+//       Area: 1,
+//       Zone: 6,
+//       Bank: 129,
+//       Stand: 5,
+//       NetWin: 0,
+//       OldDenom: 0.1,
+//       NewDenom: 0.1,
+//       OldPaybackPct: 90.08,
+//       NewPaybackPct: 90.08,
+//       Asset: 4043,
+//       Date: '2019/06/16'
+//   }]
+// },
+// {50: [{
+//   ChangeDay: '',
+//   Action: 'accept',
+//   RecommendationStatus: 'accepted',
+//   Area: 1,
+//   Zone: 6,
+//   Bank: 129,
+//   Stand: 4,
+//   NetWin: 0,
+//   OldDenom: 0.1,
+//   NewDenom: 0.1,
+//   OldPaybackPct: 91.94,
+//   NewPaybackPct: 91.94,
+//   Asset: 4042,
+//   Date: '2019/06/16'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'accept',
+//       RecommendationStatus: 'accepted',
+//       Area: 1,
+//       Zone: 6,
+//       Bank: 129,
+//       Stand: 3,
+//       NetWin: 10542,
+//       OldDenom: 0.1,
+//       NewDenom: 0.1,
+//       OldPaybackPct: 90.03,
+//       NewPaybackPct: 93.42,
+//       Asset: 4041,
+//       Date: '2019/06/16'
+//   },
+//   {
+//       ChangeDay: '',
+//       Action: 'accept',
+//       RecommendationStatus: 'accepted',
+//       Area: 1,
+//       Zone: 6,
+//       Bank: 129,
+//       Stand: 2,
+//       NetWin: 6188,
+//       OldDenom: 0.1,
+//       NewDenom: 0.1,
+//       OldPaybackPct: 89.98,
+//       NewPaybackPct: 91.97,
+//       Asset: 4040,
+//       Date: '2019/06/16'
+//   }]
+// }
+// ]
+
+
+
+const groupedItemsObj = [
+  { 48: [{ Asset: 8919, Area: 1, Zone: 2, Bank: 48 }, { Asset: 8917, Area: 1, Zone: 2, Bank: 48 }] },
+  { 37: [{ Asset: 1529, Area: 1, Zone: 2, Bank: 37 }] },
+  { 50: [{ Asset: 7919, Area: 1, Zone: 2, Bank: 50 }, { Asset: 2297, Area: 1, Zone: 2, Bank: 50 }] }
+]
+
+
+tableRows = groupedItemsObj.map(function(key,index) {
+  let groupRow, row;
+  let group = groupRow+row;
+  
+  groupRow = Object.keys(groupedItemsObj[index])
+
+  Object.entries(groupedItemsObj[index]).map((attr, ind) => {
+    
+    row = attr[1].map((at) => {
+      console.log(at)
+    
+    })
+  })
+
+
+
+
+    
+   
+
+      // key.map(function(k, i) {
+      //     console.log("groupItemsObj[index][i]", k[i])
+      // })
+
+})
