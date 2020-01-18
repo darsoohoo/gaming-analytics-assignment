@@ -34,30 +34,32 @@ const TableRow = (props) => {
             )
         })
     } else {
-        let groupRow, row;
-        let group = groupRow+row;
 
-        tableRows = group;
-  
-        groupedItemsObj.map(function(key, index) {
+        tableRows = groupedItemsObj.map(function(key, index) {
+            let row;
+           
+
+            let groupRow = <div>{Object.keys(groupedItemsObj[index])}</div>
             
-
-            groupRow = <div>{Object.keys(groupedItemsObj[index])}</div>
-
-            Object.entries(groupedItemsObj[index]).map((attr) => {
-                row = attr[1].map((at) => {
-                    console.log(at)
-                     (
+            row = Object.entries(groupedItemsObj[index]).map((attr) => {
+                
+               let r = attr[1].map((at, i) => {
+                    return (
                         <tr>
-                            <td>{at}</td>
+                            <td>{i + 1}</td>
+                            <td>{at.Asset}</td>
+                            <td>{at.Area}</td>
+                            <td>{at.Zone}</td>
+                            <td>{at.Bank}</td>
                         </tr>
-                        )
-                })
-            })
-            return group;
-        })
+                    )
 
-        
+                })
+                return r;
+            })
+            return row;
+          
+        }) 
   
     
     }
