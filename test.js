@@ -1672,6 +1672,23 @@ const groupedItems = [
   }
 ]
 
+
+let array = groupedItems.map((item) => {
+  
+  
+  for(let num in item) {
+    console.log(num)
+    // console.log(item[num][0])
+    for(let key in item[num]) {
+
+      console.log(item[num][key])
+      console.log(typeof(item[num][key]))
+    }
+
+  }
+
+});
+
 //SUCCESS
 // const groupItems = (items) => {
 //     let keymap = {};
@@ -1706,23 +1723,33 @@ const groupedItems = [
 // groupItems(recommendations, k)
 
 
+/*
+
+
+
+
+
+  items = [
+    {22: [{item}, {item} ]},
+    {45: [{item}, {item}, {item} ]},
+    {50: [{item}, {item}, {item}, {item} ]},
+    {66: [{item}, {item} ]},
+  ]
+
+*/
+
+
 const groupItems = (items, key) => {  
   let keyArray = [];
+  //keyArray = []
+  // push the key into the array assign the 
+
+
   // iterate through the items array
   // iterate through keyarray 
     // if itemskey is not in keyarray, push itemskey object in the array
     // if items key is in the keyarray, push the itemskey in the objectarray of that array
-    for( let i = 0; i < items.length; i++) {
-        if(!items[i][key]) {
-            keymap[items[i][key]] = [];
-            keymap[items[i][key]].push(items[i])
 
-        } else {
-            keymap[items[i][key]].push(items[i])
-        }
-    }
-    console.log(keymap)
-    return keymap;
 }
 const k = 'Bank'
 groupItems(recommendations, k)
