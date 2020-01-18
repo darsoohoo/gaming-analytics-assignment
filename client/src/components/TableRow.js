@@ -3,11 +3,102 @@ import React, { Fragment } from 'react';
 const TableRow = (props) => {
 
 
+    // 
+    
     const groupedItemsObj = [
-        { 48: [{ Asset: 8919, Area: 1, Zone: 2, Bank: 48 }, { Asset: 8917, Area: 1, Zone: 2, Bank: 48 }] },
-        { 37: [{ Asset: 1529, Area: 1, Zone: 2, Bank: 37 }] },
-        { 50: [{ Asset: 7919, Area: 1, Zone: 2, Bank: 50 }, { Asset: 2297, Area: 1, Zone: 2, Bank: 50 }] }
-    ]
+        { 48: 
+            [
+                { 
+                    ChangeDay: '',
+                    Action: 'reject',
+                    RecommendationStatus: 'rejected',
+                    Area: 1,
+                    Zone: 6,
+                    Bank: 48,
+                    Stand: 8,
+                    NetWin: 11226,
+                    OldDenom: 0.1,
+                    NewDenom: 0.1,
+                    OldPaybackPct: 90.38,
+                    NewPaybackPct: 93.99,
+                    Asset: 8919,
+                    Date: '2019/06/16'
+                },
+                { 
+                    ChangeDay: '',
+                    Action: 'reject',
+                    RecommendationStatus: 'rejected',
+                    Area: 1,
+                    Zone: 6,
+                    Bank: 48,
+                    Stand: 8,
+                    NetWin: 11226,
+                    OldDenom: 0.1,
+                    NewDenom: 0.1,
+                    OldPaybackPct: 90.38,
+                    NewPaybackPct: 93.99,
+                    Asset: 8917,
+                    Date: '2019/06/16' 
+                }
+            ] 
+        },
+        { 37: 
+            [
+                {
+                    ChangeDay: '',
+                    Action: 'accept',
+                    RecommendationStatus: 'accepted',
+                    Area: 1,
+                    Zone: 6,
+                    Bank: 37,
+                    Stand: 2,
+                    NetWin: 6188,
+                    OldDenom: 0.1,
+                    NewDenom: 0.1,
+                    OldPaybackPct: 89.98,
+                    NewPaybackPct: 91.97,
+                    Asset: 1529,
+                    Date: '2019/06/16'
+                }
+            ] 
+        },
+        { 50: 
+            [
+                { 
+                    ChangeDay: '',
+                    Action: 'accept',
+                    RecommendationStatus: 'accepted',
+                    Area: 1,
+                    Zone: 6,
+                    Bank: 50,
+                    Stand: 4,
+                    NetWin: 0,
+                    OldDenom: 0.1,
+                    NewDenom: 0.1,
+                    OldPaybackPct: 91.94,
+                    NewPaybackPct: 91.94,
+                    Asset: 7919,
+                    Date: '2019/06/16'
+                }, 
+                { 
+                    ChangeDay: '',
+                    Action: 'accept',
+                    RecommendationStatus: 'accepted',
+                    Area: 1,
+                    Zone: 6,
+                    Bank: 50,
+                    Stand: 4,
+                    NetWin: 0,
+                    OldDenom: 0.1,
+                    NewDenom: 0.1,
+                    OldPaybackPct: 91.94,
+                    NewPaybackPct: 91.94,
+                    Asset: 2297,
+                    Date: '2019/06/16'
+                }
+            ] 
+        }
+      ]
     
     let tableRows;
 
@@ -35,29 +126,48 @@ const TableRow = (props) => {
         })
     } else {
 
-        tableRows = groupedItemsObj.map(function(key, index) {
+        tableRows = groupedItemsObj.map((key, index) => {
             let row;
            
 
-            let groupRow = <div>{Object.keys(groupedItemsObj[index])}</div>
+            let groupRow = (
+                <thead>
+                    {Object.keys(groupedItemsObj[index])}
+                </thead>
+            )
             
             row = Object.entries(groupedItemsObj[index]).map((attr) => {
-                
+
                let r = attr[1].map((at, i) => {
+                   console.log("at ",at)
                     return (
-                        <tr>
+                        <tr key={i}>
                             <td>{i + 1}</td>
                             <td>{at.Asset}</td>
+                            <td>{at.Action}</td>
+                            <td>{at.RecommendationStatus}</td>
                             <td>{at.Area}</td>
                             <td>{at.Zone}</td>
                             <td>{at.Bank}</td>
+                            <td>{at.Stand}</td>
+                            <td>{at.NetWin}</td>
+                            <td>{at.OldDenom}</td>
+                            <td>{at.NewDenom}</td>
+                            <td>{at.OldPaybackPct}</td>
+                            <td>{at.NewPaybackPct}</td>
+                            <td>{at.Date}</td>
                         </tr>
                     )
 
                 })
                 return r;
             })
-            return row;
+            return (
+                <Fragment>
+                     {groupRow}
+                        {row}
+                </Fragment>
+            )
           
         }) 
   
