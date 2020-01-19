@@ -118,12 +118,8 @@ export class Landing extends Component {
   };
 
   change = event => {
-    if (event.target.value === 'Clear') {
-      this.clearGroupBy();
-    } else {
       this.setState({ groupBy: event.target.value });
       this.groupItems(event.target.value);
-    }
   };
 
   render() {

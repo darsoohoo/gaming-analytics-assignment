@@ -20,7 +20,6 @@ const GroupByDropdown = props => {
               value={props.value}
             >
               <option value='Select'>Select</option>
-              <option value='Clear'>Clear</option>
               <option value='Asset'>Asset</option>
               <option value='Action'>Action</option>
               <option value='Status'>Status</option>
