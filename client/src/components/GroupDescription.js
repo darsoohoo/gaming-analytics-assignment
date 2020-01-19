@@ -5,7 +5,7 @@ const GroupDescription = ({ groupBy, items, index, i }) => {
   return (
     <div className='collection group-description'>
       <a href='#!' className='collection-item'>
-        Grouped by {groupBy} <b>{Object.keys(items[index])[i]}</b>
+        Grouped by <b> {groupBy}: {Object.keys(items[index])[i]}</b>
       </a>
     </div>
   );

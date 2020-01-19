@@ -27,7 +27,7 @@ export class Landing extends Component {
         Date: ''
       },
       groupBy: '',
-      value: 'select'
+      value: ''
     };
   }
 

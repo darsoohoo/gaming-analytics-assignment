@@ -2,15 +2,18 @@ import React, { Fragment } from 'react';
 import './GroupByDropdown.css';
 
 const GroupByDropdown = props => {
+    const disable = props.value ? true : false ;
   return (
     <Fragment>
       <div className='grouping-selection'>
-        <div className='row'>
+      <div className='row'>
           <h6 id='dropdown-name'>Group by</h6>
         </div>
+
         <div id='grouping-selection-dropdown' className='row'>
-          <div className='column'>
-            <select
+
+          <div className='column-1'>
+            <select disabled={disable}
               className='browser-default'
               id='lang'
               onChange={e => props.change(e)}

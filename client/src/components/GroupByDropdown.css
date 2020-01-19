@@ -1,10 +1,15 @@
 .grouping-selection {
-  width: 240px;
+ 
 }
 
-.column {
+.browser-default {
+    width: auto;
+    margin-right: 10px;
+}
+
+.column-1 {
     float: left;
-    width: 50%;
+    width: 25%;
   }
 
   
