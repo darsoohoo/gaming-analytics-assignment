@@ -1,20 +1,7 @@
-.grouping {
-  margin-top: 50px;
-  width:50%;
+.group-description {
+    float: left;
 }
-
 
 .table {
-  margin-top: 50px;
-  border: solid thin lightgray;
-}
-
-.table-head {
-  border: solid thin darkgray;
-}
-
-.btn {
-  margin-right: 3px;
-  margin-bottom: 5px;
-  float: left;
+    margin-top: 10px;
 }
