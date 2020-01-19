@@ -129,7 +129,7 @@ export class Landing extends Component {
   render() {
     return (
       <section className='container landing'>
-        <GroupByDropdown change={this.change} value={this.state.groupBy} />
+        <GroupByDropdown change={this.change} value={this.state.groupBy} clearGroupBy={this.clearGroupBy} />
         <Table
           items={this.state.items}
           groupBy={this.state.groupBy}
