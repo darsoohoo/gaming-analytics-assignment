@@ -96,7 +96,7 @@ export class Table extends Component {
 
   groupItems = (k) => {
     const { items } = this.state;
-    let keyArray = [];
+ 
     let keymap = {};
     for( let i = 0; i < items.length; i++) {
         if(!keymap[items[i][k]]) {
@@ -107,9 +107,9 @@ export class Table extends Component {
             keymap[items[i][k]].push(items[i])
         }
     }
-    keyArray.push(keymap)
-    console.log("set items to ", keyArray)
-    this.setState({ items: keyArray });
+  
+
+    this.setState({ items: [keymap] });
 }
 
   onGroupBy = key => {

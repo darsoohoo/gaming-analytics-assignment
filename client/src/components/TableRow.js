@@ -125,46 +125,59 @@ const TableRow = (props) => {
             )
         })
     } else {
+        console.log("propsitems ",props.items)
 
-        tableRows = groupedItemsObj.map((key, index) => {
+        tableRows = props.items.map((key, index) => {
+         
+            let groupHeader;
             let row;
-           
 
-            let groupRow = (
+            
+            row = Object.entries(props.items[index]).map((attr, i) => {
+
+
+            groupHeader = (
                 <thead>
-                    {Object.keys(groupedItemsObj[index])}
+                    <th>{Object.keys(props.items[index])[i]}</th>
                 </thead>
             )
-            
-            row = Object.entries(groupedItemsObj[index]).map((attr) => {
+  
+                      
+        
+                let r = attr[1].map((at, i) => {
+                  
 
-               let r = attr[1].map((at, i) => {
-                   console.log("at ",at)
+                        return (
+                            <tr key={i}>
+                                <td>{i + 1}</td>
+                                <td>{at.Asset}</td>
+                                <td>{at.Action}</td>
+                                <td>{at.RecommendationStatus}</td>
+                                <td>{at.Area}</td>
+                                <td>{at.Zone}</td>
+                                <td>{at.Bank}</td>
+                                <td>{at.Stand}</td>
+                                <td>{at.NetWin}</td>
+                                <td>{at.OldDenom}</td>
+                                <td>{at.NewDenom}</td>
+                                <td>{at.OldPaybackPct}</td>
+                                <td>{at.NewPaybackPct}</td>
+                                <td>{at.Date}</td>
+                            </tr>
+                        )
+                    })
                     return (
-                        <tr key={i}>
-                            <td>{i + 1}</td>
-                            <td>{at.Asset}</td>
-                            <td>{at.Action}</td>
-                            <td>{at.RecommendationStatus}</td>
-                            <td>{at.Area}</td>
-                            <td>{at.Zone}</td>
-                            <td>{at.Bank}</td>
-                            <td>{at.Stand}</td>
-                            <td>{at.NetWin}</td>
-                            <td>{at.OldDenom}</td>
-                            <td>{at.NewDenom}</td>
-                            <td>{at.OldPaybackPct}</td>
-                            <td>{at.NewPaybackPct}</td>
-                            <td>{at.Date}</td>
-                        </tr>
+                        <Fragment>
+                            {groupHeader}
+                            {r}
+                        </Fragment>
                     )
 
-                })
-                return r;
+
             })
             return (
                 <Fragment>
-                     {groupRow}
+                     {/* {groupHeader} */}
                         {row}
                 </Fragment>
             )
