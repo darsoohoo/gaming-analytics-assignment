@@ -6,13 +6,17 @@ const TableBody = (props) => {
 
 
     return (
-        <tbody>
+        <table className='table highlight responsive-table'>
+     
             <TableRow 
                 items={props.items} 
                 groupBy={props.groupBy}
+                sortBy={props.sortBy}
              
             />
-        </tbody>
+
+        </table>
+      
     );
 }
 

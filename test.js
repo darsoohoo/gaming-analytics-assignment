@@ -1926,3 +1926,102 @@ tableRows = groupedItemsObj.map(function(key,index) {
       // })
 
 })
+
+
+
+    // 
+    
+    const groupedItemsObj = [
+      { 48: 
+          [
+              { 
+                  ChangeDay: '',
+                  Action: 'reject',
+                  RecommendationStatus: 'rejected',
+                  Area: 1,
+                  Zone: 6,
+                  Bank: 48,
+                  Stand: 8,
+                  NetWin: 11226,
+                  OldDenom: 0.1,
+                  NewDenom: 0.1,
+                  OldPaybackPct: 90.38,
+                  NewPaybackPct: 93.99,
+                  Asset: 8919,
+                  Date: '2019/06/16'
+              },
+              { 
+                  ChangeDay: '',
+                  Action: 'reject',
+                  RecommendationStatus: 'rejected',
+                  Area: 1,
+                  Zone: 6,
+                  Bank: 48,
+                  Stand: 8,
+                  NetWin: 11226,
+                  OldDenom: 0.1,
+                  NewDenom: 0.1,
+                  OldPaybackPct: 90.38,
+                  NewPaybackPct: 93.99,
+                  Asset: 8917,
+                  Date: '2019/06/16' 
+              }
+          ] 
+      },
+      { 37: 
+          [
+              {
+                  ChangeDay: '',
+                  Action: 'accept',
+                  RecommendationStatus: 'accepted',
+                  Area: 1,
+                  Zone: 6,
+                  Bank: 37,
+                  Stand: 2,
+                  NetWin: 6188,
+                  OldDenom: 0.1,
+                  NewDenom: 0.1,
+                  OldPaybackPct: 89.98,
+                  NewPaybackPct: 91.97,
+                  Asset: 1529,
+                  Date: '2019/06/16'
+              }
+          ] 
+      },
+      { 50: 
+          [
+              { 
+                  ChangeDay: '',
+                  Action: 'accept',
+                  RecommendationStatus: 'accepted',
+                  Area: 1,
+                  Zone: 6,
+                  Bank: 50,
+                  Stand: 4,
+                  NetWin: 0,
+                  OldDenom: 0.1,
+                  NewDenom: 0.1,
+                  OldPaybackPct: 91.94,
+                  NewPaybackPct: 91.94,
+                  Asset: 7919,
+                  Date: '2019/06/16'
+              }, 
+              { 
+                  ChangeDay: '',
+                  Action: 'accept',
+                  RecommendationStatus: 'accepted',
+                  Area: 1,
+                  Zone: 6,
+                  Bank: 50,
+                  Stand: 4,
+                  NetWin: 0,
+                  OldDenom: 0.1,
+                  NewDenom: 0.1,
+                  OldPaybackPct: 91.94,
+                  NewPaybackPct: 91.94,
+                  Asset: 2297,
+                  Date: '2019/06/16'
+              }
+          ] 
+      }
+    ]
