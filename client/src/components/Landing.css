@@ -1,15 +1,6 @@
 .grouping-selection {
   margin-top: 50px;
-  width:50%;
-}
-
-.table {
-  margin-top: 50px;
-  border: solid thin lightgray;
-}
-
-.table-head {
-  border: solid thin darkgray;
+  width: 50%;
 }
 
 .btn {

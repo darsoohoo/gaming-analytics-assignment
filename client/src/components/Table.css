@@ -1,7 +1,13 @@
 .group-description {
-    float: left;
+  float: left;
 }
 
-.table {
-    margin-top: 10px;
+#table {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: solid thin darkgray;
+}
+
+.table-head {
+  border: solid thin darkgray;
 }
