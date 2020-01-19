@@ -25,7 +25,8 @@ export class Landing extends Component {
         NewPaybackPct: '',
         Date: ''
       },
-      groupBy: ''
+      groupBy: '',
+      value: 'select'
     };
   }
 
@@ -111,62 +112,44 @@ export class Landing extends Component {
     this.setState({ items: [keymap] });
 }
 
-  onGroupBy = key => {
-    this.setState({ groupBy: key }, () => console.log("set GroupBy to", key))
-    this.groupItems(key)
-  };
-
   clearGroupBy = () => {
     this.setState({ groupBy: '' })
     this.loadData();
   };
 
+  change = (event) => {
+    if(event.target.value === 'Clear') {
+      this.clearGroupBy();
+    } else {
+      this.setState({groupBy: event.target.value});
+      this.groupItems(event.target.value)
+    }
+
+}
+
   render() {
 
     return (
-      <section className="container">
+      <section className="container landing">
+
+
         <div className='grouping-selection'>
-          <button
-            className='waves-effect waves-light btn'
-            onClick={() => this.onGroupBy('Area')}
-          >
-            Area
-          </button>
-          <button
-            className='waves-effect waves-light btn'
-            onClick={() => this.onGroupBy('Zone')}
-          >
-            Zone
-          </button>
-          <button
-            className='waves-effect waves-light btn'
-            onClick={() => this.onGroupBy('Bank')}
-          >
-            Bank
-          </button>
-          <button
-            className='waves-effect waves-light btn'
-            onClick={() => this.onGroupBy('OldDenom')}
-          >
-            Old Denom
-          </button>
-          <button
-            className='waves-effect waves-light btn btn-flat'
-            onClick={() => this.clearGroupBy()}
-          >
-            Clear
-          </button>
+
+        <label>Group Select</label>
+              <select className="browser-default" id="lang" onChange={(e) => this.change(e)} value={this.state.groupBy}>
+                  <option value="Select">Select</option>
+                  <option value="Clear">Clear</option>
+                  <option value="Bank">Bank</option>
+                  <option value="OldDenom">Old Denom</option>
+                  <option value="Zone">Zone</option>
+               </select>
         </div>
-
-
-
             <Table 
               items={this.state.items}
               groupBy={this.state.groupBy}
               onGroupBy={this.onGroupBy} 
               sortBy={this.sortBy}
             />
-
       </section>
     );
   }

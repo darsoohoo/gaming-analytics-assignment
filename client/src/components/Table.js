@@ -24,6 +24,8 @@ const Table = (props) => {
 
                     const groupDescription = (
                         <Fragment>
+                            <br></br>
+                            <br></br>
                             <div className="collection group-description">
                                 <a href="#!" className="collection-item">Grouped by {props.groupBy} <b>{Object.keys(props.items[index])[i]}</b></a>
                             </div>
