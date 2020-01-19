@@ -96,6 +96,7 @@ export class Table extends Component {
 
   groupItems = (k) => {
     const { items } = this.state;
+ 
     let keymap = {};
     for( let i = 0; i < items.length; i++) {
         if(!keymap[items[i][k]]) {
@@ -106,18 +107,19 @@ export class Table extends Component {
             keymap[items[i][k]].push(items[i])
         }
     }
-    console.log("set items to ", keymap)
-    this.setState({ items: keymap });
+  
+
+    this.setState({ items: [keymap] });
 }
 
   onGroupBy = key => {
     this.setState({ groupBy: key }, () => console.log("set GroupBy to", key))
     this.groupItems(key)
-    
   };
 
   clearGroupBy = () => {
     this.setState({ groupBy: '' })
+    this.loadData();
   };
 
   render() {
@@ -157,20 +159,14 @@ export class Table extends Component {
             Clear
           </button>
         </div>
-        <table className='table highlight responsive-table'>
 
-   
-            <TableHeader
-              sortBy={this.sortBy}
-              items={this.state.items} 
-            />
+
             <TableBody 
               items={this.state.items}
               groupBy={this.state.groupBy}
               onGroupBy={this.onGroupBy} 
+              sortBy={this.sortBy}
             />
-
-        </table>
 
       </section>
     );
