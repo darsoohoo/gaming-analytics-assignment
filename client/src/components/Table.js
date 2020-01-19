@@ -28,7 +28,7 @@ const Table = props => {
           />
         );
         const groupTableHeader = (
-          <TableHeader sortBy={props.sortBy} items={props.items} />
+          <TableHeader sortBy={props.sortBy} direction={props.direction} />
         );
         const row = attr[1].map((item, i) => {
           return <TableRow item={item} index={i} />;

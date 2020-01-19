@@ -9,6 +9,7 @@ export class Landing extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      activeColumn: '',
       direction: {
         Asset: '',
         ChangeDay: '',
@@ -48,6 +49,7 @@ export class Landing extends Component {
   };
 
   sortBy = key => {
+    this.setState({ activeColumn: key })
     if (key === 'Date') {
       const dateParser = this.state.items.map(item => {
         const date = new Date(item[key]);

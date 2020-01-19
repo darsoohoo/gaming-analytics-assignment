@@ -6,10 +6,10 @@ const TableHeader = ({ sortBy }) => {
     <thead className='table-head'>
       <th>Row</th>
       <th className='asset' onClick={() => sortBy('Asset')}>
-       Asset   <i className="material-icons">arrow_drop_down</i>
+        Asset
       </th>
       <th className='action' onClick={() => sortBy('Action')}>
-      <div> Action   <i className="material-icons">arrow_drop_down</i></div>
+        Action
       </th>
       <th className='status' onClick={() => sortBy('RecommendationStatus')}>
         Status
