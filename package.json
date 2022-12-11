@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/darsoohoo/gaming-analytics-assignment#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "concurrently": "^5.0.2",
